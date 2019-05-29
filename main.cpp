@@ -8,20 +8,19 @@ const int InitialCount=100;
 int Count,Num,Player;
 bool Correct;
 int main (){       
- setlocale(LC_ALL, "Russian"); 
- Count=InitialCount;
 int i,p;
+Count=InitialCount;
     for(i=0; Count!=0; i++){
         if (i%2==0){
-            cout << "Ход первого игрока!\n";
+            cout << "First player's move!\n";
             do{
-                cout<<"На столе "<<Count<<" спичек \n";
-                cout<<"Сколько спичек вы берете?\n";
+                cout<<"There are "<<Count<<" matchers on the table. \n";
+                cout<<"How many matchers do you take?\n";
                 cin>>Num;
                 if(Num>=1&&Num<=10&&Num<=Count)
                     Correct=true;
                 else{
-                    cout<<"Неверно! Повторите ввод!\n";
+                    cout<<"Wrong! Repeat input!\n";
                     Correct=false;
                 } 
             }
@@ -29,15 +28,15 @@ int i,p;
         }
         
         else{
-            cout << "Ход второго игрока!\n";
+            cout << "Second player move!\n";
             do{
-                cout<<"На столе "<<Count<<" спичек \n";
-                cout<<"Сколько спичек вы берете?\n";
+               cout<<"There are "<<Count<<" matchers on the table. \n";
+                cout<<"How many matchers do you take?\n";
                 cin>>Num;
                 if(Num>=1&&Num<=10&&Num<=Count)
                     Correct=true;
                 else{
-                    cout<<"Неверно! Повторите ввод!\n";
+                    cout<<"Wrong! Repeat input!\n";
                     Correct=false;
                 } 
             }
@@ -47,9 +46,9 @@ int i,p;
     p=i;
        }
     if (p%2==0){
-        cout<<"Победу одержал первый игрок";
+        cout<<"The first player won!";
 	}
     else {
-        cout<<"Победу одержал второй игрок!";
+        cout<<"The second player won!";
 	}      
 }       
