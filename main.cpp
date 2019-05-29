@@ -14,8 +14,8 @@ Count=InitialCount;
         if (i%2==0){
             cout << "First player's move!\n";
             do{
-                cout<<"There are "<<Count<<" matchers on the table. \n";
-                cout<<"How many matchers do you take?\n";
+                cout<<"There are "<<Count<<" matches on the table. \n";
+                cout<<"How many matches do you take?\n";
                 cin>>Num;
                 if(Num>=1&&Num<=10&&Num<=Count)
                     Correct=true;
@@ -30,8 +30,8 @@ Count=InitialCount;
         else{
             cout << "Second player move!\n";
             do{
-               cout<<"There are "<<Count<<" matchers on the table. \n";
-                cout<<"How many matchers do you take?\n";
+               cout<<"There are "<<Count<<" matches on the table. \n";
+                cout<<"How many matches do you take?\n";
                 cin>>Num;
                 if(Num>=1&&Num<=10&&Num<=Count)
                     Correct=true;
