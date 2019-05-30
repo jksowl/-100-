@@ -33,8 +33,11 @@ int menu(int r)
         cout << "A player's nickname consists of at least 1 maximum" << endl;
         cout << "of 15 Latin alphabet characters from A to z. There should be "
                 "no gaps when entering a nickname."
-             << endl << endl;
+             << endl
+             << endl;
         cout << "To continue press any key ..." << endl;
+        cin.get();
+        cin.get();
         return 1;
     }
     case 3: {
@@ -88,7 +91,7 @@ int CheckNik(string p)
 int main()
 {
     system("clear");
-    int i = 0, Count = 100, Num, k, h1, h2, h = 0, x = 1, r;
+    int i = 0, Count = 100, Num, k, h1, h2, x = 1, r;
     bool Correct;
     string p1, p2;
     srand(time(NULL));
@@ -96,18 +99,20 @@ int main()
     h1 = rand() % 100;
     h2 = rand() % 100;
     while (x) {
+        system("clear");
         cout << "\t1.Start game" << endl << endl;
         cout << "\t2.Rules" << endl << endl;
         cout << "\t3.Exit" << endl << endl;
         cout << "Select menu item:";
         cin >> r;
         x = menu(r);
-        if (x==2)
-    	return 0;
+        if (x == 2) {
+            return 0;
+        }
     }
 
     if (h1 > h2) {
-        h++;
+        i++;
     }
     while (Correct) {
         cout << "Nikname player 1:";
@@ -121,7 +126,7 @@ int main()
         cin >> p2;
         Correct = CheckNik(p2);
     }
-    for (i = h; Count != 0; i++) {
+    for (; Count != 0; i++) {
         if (i % 2 == 0) {
             cout << " Player's move " << p1 << "\n";
             cout << "There are " << Count << " matches on the table.\n";
