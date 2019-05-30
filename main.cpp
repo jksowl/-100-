@@ -58,10 +58,10 @@ int CheckNik(string p)
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    // int i, Count = 100, Num, k;
+    int i, Count = 100, Num, k;
     bool Correct;
     string p1, p2;
-    // player;
+    player;
     Correct = true;
     while (Correct) {
         cout << "Nikname player 1:";
