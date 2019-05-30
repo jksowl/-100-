@@ -58,11 +58,13 @@ int CheckNik(string p)
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int i, Count = 100, Num, k;
+    int i = 0, Count = 100, Num, k;
     bool Correct;
     string p1, p2;
-    player;
     Correct = true;
+    if (h1 > h2) {
+        i++;
+    }
     while (Correct) {
         cout << "Nikname player 1:";
         cin >> p1;
@@ -75,27 +77,25 @@ int main()
         cin >> p2;
         Correct = CheckNik(p2);
     }
-    for (i = 0; Count != 0; i++) {
+    for (i; Count != 0; i++) {
         if (i % 2 == 0) {
-            player = p1;
             cout << "Move -" << p1 << "\n";
             cout << "There are " << Count << " matches on the table.\n";
             Correct = false;
             while (!Correct) {
                 cout << "How many matches do you take?\n";
                 cin >> Num;
-                Correct = game(player, Num, Count, Correct);
+                Correct = game(p1, Num, Count, Correct);
             }
             Count -= Num;
         } else {
-            player = p1;
             cout << "move - " << p2 << "\n";
             cout << "There are " << Count << " matches on the table.\n";
             Correct = false;
             while (!Correct) {
                 cout << "How many matches do you take?\n";
                 cin >> Num;
-                Correct = game(player, Num, Count, Correct);
+                Correct = game(p2, Num, Count, Correct);
             }
             Count -= Num;
         }
