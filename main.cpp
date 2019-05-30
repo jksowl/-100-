@@ -18,32 +18,33 @@ int game(string player, int Num, int Count, bool Correct)
 
 int menu(int r)
 {
-	system("clear");
-	
-	switch (r) {
-		case 1: {
-			return 0;
-		}
-		case 2: {
-			system("clear");
-			cout << "From the heap, initially containing 100 matches, two playing "
-				   "in turn take several matches: at least one and "<< endl;
-			cout << "not more than ten. Wins the one who took the last match. ";
-			cout << "A player's nickname consists of at least 1 maximum" << endl;
-			cout << "of 15 Latin alphabet characters from A to z. There should be "
-				   "no gaps when entering a nickname."<< endl;
-			cout << "To continue press any key ..." << endl;
-			return 1;
-		}
-		case 3: {
-			system("clear");
-			cout <<"Good bay :) " << endl;
-			return 2;
-		}
-	}
-	return 0;
-}
+    system("clear");
 
+    switch (r) {
+    case 1: {
+        return 0;
+    }
+    case 2: {
+        system("clear");
+        cout << "From the heap, initially containing 100 matches, two playing "
+                "in turn take several matches: at least one and "
+             << endl;
+        cout << "not more than ten. Wins the one who took the last match. ";
+        cout << "A player's nickname consists of at least 1 maximum" << endl;
+        cout << "of 15 Latin alphabet characters from A to z. There should be "
+                "no gaps when entering a nickname."
+             << endl << endl;
+        cout << "To continue press any key ..." << endl;
+        return 1;
+    }
+    case 3: {
+        system("clear");
+        cout << "Good bay :) " << endl;
+        return 2;
+    }
+    }
+    return 0;
+}
 
 int CheckNik(string p)
 {
@@ -86,22 +87,25 @@ int CheckNik(string p)
 
 int main()
 {
-    int i = 0, Count = 100, Num, k, h1,h2,h=0, x=1,r;
+    system("clear");
+    int i = 0, Count = 100, Num, k, h1, h2, h = 0, x = 1, r;
     bool Correct;
     string p1, p2;
     srand(time(NULL));
     Correct = true;
-    h1=rand()%100;
-    h2=rand()%100;
-	cout << "\t1.Start game" << endl << endl;
-	cout << "\t2.Rules" << endl << endl;
-	cout << "\t3.Exit" << endl << endl;
-	cout << "Select menu item:";
-while (x){
-	cin >> r;
-	x=menu(r);	
-}
-    
+    h1 = rand() % 100;
+    h2 = rand() % 100;
+    while (x) {
+        cout << "\t1.Start game" << endl << endl;
+        cout << "\t2.Rules" << endl << endl;
+        cout << "\t3.Exit" << endl << endl;
+        cout << "Select menu item:";
+        cin >> r;
+        x = menu(r);
+        if (x==2)
+    	return 0;
+    }
+
     if (h1 > h2) {
         h++;
     }
@@ -117,7 +121,7 @@ while (x){
         cin >> p2;
         Correct = CheckNik(p2);
     }
-    for (i=h; Count != 0; i++) {
+    for (i = h; Count != 0; i++) {
         if (i % 2 == 0) {
             cout << " Player's move " << p1 << "\n";
             cout << "There are " << Count << " matches on the table.\n";
@@ -128,8 +132,7 @@ while (x){
                 Correct = game(p1, Num, Count, Correct);
             }
             Count -= Num;
-        } 
-        else {
+        } else {
             cout << " Player's move " << p2 << "\n";
             cout << "There are " << Count << " matches on the table.\n";
             Correct = false;
@@ -148,4 +151,3 @@ while (x){
         cout << "Win " << p2 << "!" << endl;
     }
 }
-
