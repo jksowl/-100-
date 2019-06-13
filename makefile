@@ -1,16 +1,16 @@
 CFLAGS = -Wall -Werror
-
+TEST = g++ -std=c++11 $(GFAGS) -Ithirtdparty/catch2 -Isrc -c $< -o $@
 OBJ = g++ $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 
-all:folder Game.exe tests
+all:folder bin/Game.exe bin/tests
 
 folder:
 	mkdir -p build 
- 
+	mkdir -p bin
 
-Game.exe : build/check.o build/conclusion.o build/main.o 
+bin/Game.exe : build/check.o build/conclusion.o build/main.o 
 	g++ $(CFLAGS) $^ -o $@
 
 build/main.o: src/main.cpp src/main.h 
@@ -22,18 +22,16 @@ build/check.o : src/check.cpp src/main.h
 build/conclusion.o : src/conclusion.cpp src/main.h 
 	$(OBJ)
 
-tests: build/test.o  build/first_test.o 
-	gcc -Wall build/test.o build/first_test.o -o tests
+bin/tests: build/test.o build/check.o
+	g++ $(CFLAGS) -Ithirdparty/catch2 $^ -o $@
 
-build/test.o: test/test.c
-	gcc -Wall -c test/test.c -o build/test.o -Itest
-
-build/first_test.o: test/first_test.c
-	gcc -Wall -c test/first_test.c -o build/first_test.o -Itest
+build/test.o: test/test.cpp src/check.cpp 
+	$(TEST)
 
 
 clean:
 	rm build/*.o
-	rm *.exe
+	rm bin/*.exe
+	rm bin/tests
 	rm -R build
-	rm tests
+	rm -R bin

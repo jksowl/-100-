@@ -47,7 +47,7 @@ int main()
             while (!Correct) {
                 cout << "How many matches do you take?\n";
                 cin >> Num;
-                Correct = game(p1, Num, Count, Correct);
+                Correct = game(Num, Count, Correct);
             }
             Count -= Num;
         } else {
@@ -58,7 +58,7 @@ int main()
             while (!Correct) {
                 cout << "How many matches do you take?\n";
                 cin >> Num;
-                Correct = game(p2, Num, Count, Correct);
+                Correct = game(Num, Count, Correct);
             }
             Count -= Num;
         }

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int game(string player, int Num, int Count, bool Correct);
+int game(int Num, int Count, bool Correct);
 int CheckNik(string p);
 int menu(int r);
 

@@ -1,6 +1,6 @@
 #include "main.h"
 
-int game(string player, int Num, int Count, bool Correct)
+int game(int Num, int Count, bool Correct)
 {
     if (Num >= 1 && Num <= 10 && Num <= Count)
         Correct = true;
